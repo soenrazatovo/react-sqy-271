@@ -5,6 +5,39 @@
   text-align: center;
 }
 
+ul {
+  margin: auto;
+  width: fit-content;
+}
+
+li {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+button {
+  display: block;
+  margin: 16px auto;
+}
+
+input {
+  width: 500px;
+  height: 25px;
+  padding: 8px;
+  border-radius: 8px;
+  border : 1px solid grey;
+  display: block;
+  margin: 8px auto;
+}
+
+.blog-bar {
+  display: flex;
+  margin: 16px auto;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

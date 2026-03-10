@@ -1,0 +1,72 @@
+[
+  {
+    "titre": "Introduction à React : Les Fondamentaux",
+    "thème": "Développement Web",
+    "contenu": "React est une bibliothèque JavaScript populaire pour construire des interfaces utilisateur. Dans cet article, nous explorerons les concepts fondamentaux comme les composants, les props, et l'état. React permet de créer des applications web interactives et performantes grâce à son système de rendu virtuel.",
+    "date": "2024-01-15",
+    "auteur": "Marie Dubois"
+  },
+  {
+    "titre": "Les Meilleures Pratiques en CSS Moderne",
+    "thème": "Design",
+    "contenu": "Le CSS moderne offre de nombreuses fonctionnalités puissantes comme Grid, Flexbox, et les variables CSS. Découvrez comment créer des layouts responsives et maintenables. Nous aborderons également les techniques de performance et l'organisation du code CSS.",
+    "date": "2024-02-03",
+    "auteur": "Jean Martin"
+  },
+  {
+    "titre": "Comprendre les Hooks React",
+    "thème": "Développement Web",
+    "contenu": "Les Hooks ont révolutionné la façon dont nous écrivons des composants React. useState, useEffect, useContext... Apprenez à utiliser ces outils puissants pour gérer l'état et les effets de bord dans vos composants fonctionnels.",
+    "date": "2024-02-18",
+    "auteur": "Sophie Laurent"
+  },
+  {
+    "titre": "L'Intelligence Artificielle dans le Développement",
+    "thème": "Technologie",
+    "contenu": "L'IA transforme le paysage du développement logiciel. Des assistants de code aux outils de génération automatique, découvrez comment l'intelligence artificielle peut améliorer votre productivité et la qualité de votre code.",
+    "date": "2024-03-05",
+    "auteur": "Thomas Bernard"
+  },
+  {
+    "titre": "Sécurité Web : Protéger vos Applications",
+    "thème": "Sécurité",
+    "contenu": "La sécurité web est cruciale dans le développement moderne. Cet article couvre les vulnérabilités courantes comme XSS, CSRF, et l'injection SQL. Apprenez les meilleures pratiques pour protéger vos applications et vos utilisateurs.",
+    "date": "2024-03-22",
+    "auteur": "Claire Moreau"
+  },
+  {
+    "titre": "Optimisation des Performances Frontend",
+    "thème": "Performance",
+    "contenu": "Les performances sont essentielles pour une bonne expérience utilisateur. Explorez les techniques de lazy loading, code splitting, et mise en cache. Nous verrons également comment mesurer et améliorer les métriques Core Web Vitals.",
+    "date": "2024-04-10",
+    "auteur": "Pierre Lefebvre"
+  },
+  {
+    "titre": "TypeScript vs JavaScript : Lequel Choisir ?",
+    "thème": "Développement Web",
+    "contenu": "TypeScript apporte le typage statique à JavaScript. Découvrez les avantages et inconvénients de chaque approche, et quand utiliser TypeScript dans vos projets. Nous comparerons également la productivité et la maintenabilité du code.",
+    "date": "2024-04-28",
+    "auteur": "Emma Rousseau"
+  },
+  {
+    "titre": "Les Tendances du Design UI/UX en 2024",
+    "thème": "Design",
+    "contenu": "Le design évolue constamment. Découvrez les dernières tendances en matière d'interface utilisateur : dark mode, micro-interactions, design minimaliste, et accessibilité. Apprenez à créer des expériences utilisateur mémorables.",
+    "date": "2024-05-15",
+    "auteur": "Lucas Petit"
+  },
+  {
+    "titre": "API RESTful : Guide Complet pour Débutants",
+    "thème": "Backend",
+    "contenu": "Les API REST sont au cœur du développement web moderne. Comprenez les principes REST, les méthodes HTTP, et comment concevoir une API bien structurée. Nous verrons également la documentation avec OpenAPI et les bonnes pratiques.",
+    "date": "2024-06-01",
+    "auteur": "Camille Durand"
+  },
+  {
+    "titre": "Gestion d'État avec Redux et Context API",
+    "thème": "Développement Web",
+    "contenu": "La gestion d'état est un défi majeur dans les applications React complexes. Comparez Redux et Context API, leurs cas d'usage respectifs, et apprenez à choisir la bonne solution pour votre projet. Inclut des exemples pratiques et des patterns courants.",
+    "date": "2024-06-20",
+    "auteur": "Antoine Girard"
+  }
+]
