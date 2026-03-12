@@ -51,7 +51,7 @@ function Quiz() {
                         {
                             questions[countQuestion].choix.map((reponse, index) => (
                                 
-                                <button key={index} style={{margin: "0px",width: "100%", height: "100%", border: currentAnswer == reponse ? "1px solid white" : "none" , boxShadow: submited && (currentAnswer == reponse || reponse.correcte) ? reponse.correcte ? "0 0 20px #008000 " : "0 0 20px #F00000 " : "none"}} onClick={()=>{newAnswer(reponse)}}>
+                                <button key={index} style={{margin: "0px",width: "100%", height: "100%", border: !submited && currentAnswer == reponse ? "1px solid white" : "none" , boxShadow: submited && (currentAnswer == reponse || reponse.correcte) ? reponse.correcte ? "0 0 20px #008000 " : "0 0 20px #F00000 " : "none"}} onClick={()=>{newAnswer(reponse)}}>
                                     {reponse.texte}
                                 </button>
                             

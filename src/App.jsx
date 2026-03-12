@@ -7,6 +7,8 @@ import Counter from "./Counter.jsx"
 import Blog from "./Blog.jsx"
 import Form from "./Form.jsx"
 import Quiz from "./Quiz.jsx"
+import Shop from "./Shop.jsx"
+import GeoQuiz from "./GeoQuiz.jsx"
 
 function App() {
   
@@ -41,7 +43,9 @@ function App() {
         <Link to="/count">Counter</Link> | {" "}
         <Link to="/blog">Blog</Link> | {" "}
         <Link to="/form">Form</Link> | {" "}
-        <Link to="/quiz">Quiz</Link>
+        <Link to="/quiz">Quiz</Link> | {" "}
+        <Link to="/geoquiz">GeoQuiz</Link> | {" "}
+        <Link to="/shop">Shop</Link>
 
       </nav>
 
@@ -52,6 +56,8 @@ function App() {
         <Route path="/blog" element={<Blog />}/>
         <Route path="/form" element={<Form />}/>
         <Route path="/quiz" element={<Quiz />}/>
+        <Route path="/geoquiz" element={<GeoQuiz />}/>
+        <Route path="/shop" element={<Shop />}/>
       </Routes>
       
     </BrowserRouter>
