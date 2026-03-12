@@ -6,6 +6,7 @@ import Home from "./Home.jsx"
 import Counter from "./Counter.jsx"
 import Blog from "./Blog.jsx"
 import Form from "./Form.jsx"
+import Quiz from "./Quiz.jsx"
 
 function App() {
   
@@ -39,7 +40,8 @@ function App() {
         <Link to="/props">Props</Link> | {" "}
         <Link to="/count">Counter</Link> | {" "}
         <Link to="/blog">Blog</Link> | {" "}
-        <Link to="/form">Form</Link>
+        <Link to="/form">Form</Link> | {" "}
+        <Link to="/quiz">Quiz</Link>
 
       </nav>
 
@@ -49,6 +51,7 @@ function App() {
         <Route path="/count" element={<Counter />}/>
         <Route path="/blog" element={<Blog />}/>
         <Route path="/form" element={<Form />}/>
+        <Route path="/quiz" element={<Quiz />}/>
       </Routes>
       
     </BrowserRouter>

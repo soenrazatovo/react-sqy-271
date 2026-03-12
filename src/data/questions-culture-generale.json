@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "intitule": "Quelle est la capitale du Japon ?",
+    "choix": [
+      { "texte": "Shanghai", "correcte": false },
+      { "texte": "Tokyo", "correcte": true },
+      { "texte": "Séoul", "correcte": false },
+      { "texte": "Pékin", "correcte": false }
+    ]
+  },
+  {
+    "id": 2,
+    "intitule": "En quelle année l'homme a-t-il marché sur la Lune pour la première fois ?",
+    "choix": [
+      { "texte": "1965", "correcte": false },
+      { "texte": "1967", "correcte": false },
+      { "texte": "1969", "correcte": true },
+      { "texte": "1971", "correcte": false }
+    ]
+  },
+  {
+    "id": 3,
+    "intitule": "Qui a peint la Joconde ?",
+    "choix": [
+      { "texte": "Michel-Ange", "correcte": false },
+      { "texte": "Raphaël", "correcte": false },
+      { "texte": "Léonard de Vinci", "correcte": true },
+      { "texte": "Van Gogh", "correcte": false }
+    ]
+  },
+  {
+    "id": 4,
+    "intitule": "Quel est le plus long fleuve du monde ?",
+    "choix": [
+      { "texte": "L'Amazone", "correcte": false },
+      { "texte": "Le Mississippi", "correcte": false },
+      { "texte": "Le Nil", "correcte": true },
+      { "texte": "Le Yangtsé", "correcte": false }
+    ]
+  },
+  {
+    "id": 5,
+    "intitule": "Dans quel pays se trouve la tour de Pise ?",
+    "choix": [
+      { "texte": "En France", "correcte": false },
+      { "texte": "En Espagne", "correcte": false },
+      { "texte": "En Italie", "correcte": true },
+      { "texte": "En Grèce", "correcte": false }
+    ]
+  }
+]
