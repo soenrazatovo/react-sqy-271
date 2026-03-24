@@ -7,6 +7,7 @@ function Todo() {
     const [newTodoContent, setNewTodoContent] = useState("")
     const [idEditTodo, setIdEditTodo] = useState()
     const [contentEditTodo, setContentEditTodo] = useState()
+    // const [checkedEditTodo, setCheckedEditTodo] = useState()
 
     async function fetchTodos() {
         const res = await fetch("http://localhost:3000/todo", {
@@ -39,8 +40,8 @@ function Todo() {
             alert(data)
 
             setNewTodoContent("")
+            // Fetch generated ID
             fetchTodos()
-
         }
     }
 
@@ -56,7 +57,7 @@ function Todo() {
 
         const data = await res.json()
         alert(data)
-        fetchTodos()
+        setTodos(todos => todos.filter(todo => (todo.id != id)))
     }
 
     async function handleCheckboxChange(e, todo) {
@@ -88,7 +89,7 @@ function Todo() {
             })
             const data = await res.json()
             alert(data)
-            fetchTodos()
+            todo.content = contentEditTodo
         }
 
         setIdEditTodo()
