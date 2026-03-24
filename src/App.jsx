@@ -9,6 +9,8 @@ import Form from "./Form.jsx"
 import Quiz from "./Quiz.jsx"
 import Shop from "./Shop.jsx"
 import GeoQuiz from "./GeoQuiz.jsx"
+import Random from "./Random.jsx"
+import Todo from "./Todo.jsx"
 
 function App() {
   
@@ -45,7 +47,9 @@ function App() {
         <Link to="/form">Form</Link> | {" "}
         <Link to="/quiz">Quiz</Link> | {" "}
         <Link to="/geoquiz">GeoQuiz</Link> | {" "}
-        <Link to="/shop">Shop</Link>
+        <Link to="/shop">Shop</Link> | {" "}
+        <Link to="/random">Random Student</Link> | {" "}
+        <Link to="/todo">Todo</Link>
 
       </nav>
 
@@ -58,6 +62,8 @@ function App() {
         <Route path="/quiz" element={<Quiz />}/>
         <Route path="/geoquiz" element={<GeoQuiz />}/>
         <Route path="/shop" element={<Shop />}/>
+        <Route path="/random" element={<Random />}/>
+        <Route path="/todo" element={<Todo />}/>
       </Routes>
       
     </BrowserRouter>

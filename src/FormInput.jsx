@@ -8,6 +8,7 @@ function FormInput({type, name, value, updateFunction}) {
                 placeholder={"Veuillez entrer votre " + (name == undefined ? type : name)}
                 value={value}
                 onChange={(e) => updateFunction(e)}
+                minLength={type == "password" ? 8 : ""}
                 required               
             />
         </div>

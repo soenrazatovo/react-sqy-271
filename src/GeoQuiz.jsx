@@ -92,9 +92,10 @@ function GeoQuiz() {
                         <h2>Question {countQuestion+1} / {maxQuestion} </h2>
                         <h3>Score : {score} / {maxQuestion} </h3>
                         
-                        <img style={{width:"500px", objectFit:"contain"}}src={currentCountry.flags.svg} alt={currentCountry} />
-                        
                         <button onClick={()=>{questionType == "text" ? setQuestionType("button") : setQuestionType("text")}}>Switch Answer Mode</button>
+                        
+                        <img style={{height:"250px", objectFit:"contain"}}src={currentCountry.flags.svg} alt={currentCountry} />
+                        
                         
                         {questionType == "text" ?
                             <input type="text" value={answer} onChange={(e)=>{setAnswer(e.target.value)}} disabled={submited} style={{"color": submited ? answerColor : ""}}/>
