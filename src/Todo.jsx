@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function Todo() {
 
@@ -7,7 +6,6 @@ function Todo() {
     const [newTodoContent, setNewTodoContent] = useState("")
     const [idEditTodo, setIdEditTodo] = useState()
     const [contentEditTodo, setContentEditTodo] = useState()
-    // const [checkedEditTodo, setCheckedEditTodo] = useState()
 
     async function fetchTodos() {
         const res = await fetch("http://localhost:3000/todo", {
@@ -18,8 +16,21 @@ function Todo() {
             }
         })
         const data = await res.json()
-        console.log(data)
+        // console.log(data)
         setTodos(data)
+    }
+
+    async function fetchTodo(id) {
+        const res = await fetch("http://localhost:3000/todo/"+id, {
+            method: "GET",
+            headers: {
+                "Accept" : "application/json",
+                "Content-type" : "application/json",
+            }
+        })
+        const data = await res.json()
+        console.log(data)
+        return data[0]
     }
 
     async function handleSubmit(e){
@@ -37,11 +48,11 @@ function Todo() {
             })
 
             const data = await res.json()
-            alert(data)
+            const newTodo = await fetchTodo(data.insertId)
 
             setNewTodoContent("")
-            // Fetch generated ID
-            fetchTodos()
+            setTodos(todos => [...todos, newTodo])
+            
         }
     }
 
@@ -72,7 +83,8 @@ function Todo() {
         })
 
         const data = await res.json()
-        alert(data)
+        console.log(data)
+
         fetchTodos()
     }
 
@@ -88,7 +100,7 @@ function Todo() {
                 }
             })
             const data = await res.json()
-            alert(data)
+            console.log(data)
             todo.content = contentEditTodo
         }
 
@@ -100,6 +112,10 @@ function Todo() {
     useEffect(()=>{
         fetchTodos()
     },[])
+
+    useEffect(()=>{
+        console.log(todos)
+    },[todos])
 
     return ( 
         <>
