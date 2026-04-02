@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import "./App.css"
 
-import Props from "./Props.jsx"
-import Home from "./Home.jsx"
 import Counter from "./Counter.jsx"
 import Blog from "./Blog.jsx"
 import Form from "./Form.jsx"
@@ -12,62 +10,101 @@ import GeoQuiz from "./GeoQuiz.jsx"
 import Random from "./Random.jsx"
 import Todo from "./Todo.jsx"
 
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { useState,useEffect } from "react"
+
+
 function App() {
-  
-  const user = {
-    name: "Tsito",
-    age: 18
-  }
 
-  const contents = [
-    {
-      id: 1,
-      content: "Yes"
-    },
-    {
-      id: 2,
-      content: "No"
-    },
-    {
-      id: 3,
-      content: "Maybe"
-    }
-    
+    const paths = [
+        {path: "/", name: "Login", element: <Form />},
+        {path: "/count", name: "Counter", element: <Counter />},
+        {path: "/blog", name: "Blog", element: <Blog />},
+        {path: "/quiz", name: "Quiz", element: <Quiz />},
+        {path: "/geoquiz", name: "GeoQuiz", element: <GeoQuiz />},
+        {path: "/shop", name: "Shop", element: <Shop />},
+        {path: "/random", name: "Random", element: <Random />},
+        {path: "/todo", name: "Todo", element: <Todo />},
+    ]
 
-  ]
+    const DrawerList = (
+        <Box sx={{ width: 250 }} role="presentation" onClick={()=>setOpen(false)}>
+        <Divider />
+        <List>
+            {paths.map((path, index) => (
+                <Link className="Link" to={path.path} onClick={()=>setCurrentPath(path)}>
+                    <ListItem key={index} disablePadding>
+                        <ListItemButton>
+                            {path.name}
+                        </ListItemButton>
+                    </ListItem>
+                </Link>
+            ))}
+        </List>
+        </Box>
+    );
 
-  return (
-    <BrowserRouter>
-      {/* <Header user={user} contents={contents}/> */}
-      <nav>
-        <Link to="/">Home</Link> | {" "}
-        <Link to="/props">Props</Link> | {" "}
-        <Link to="/count">Counter</Link> | {" "}
-        <Link to="/blog">Blog</Link> | {" "}
-        <Link to="/form">Form</Link> | {" "}
-        <Link to="/quiz">Quiz</Link> | {" "}
-        <Link to="/geoquiz">GeoQuiz</Link> | {" "}
-        <Link to="/shop">Shop</Link> | {" "}
-        <Link to="/random">Random Student</Link> | {" "}
-        <Link to="/todo">Todo</Link>
+    const [currentPath, setCurrentPath] = useState("/")
+    const [open, setOpen] = useState(false);
 
-      </nav>
+    useEffect(()=>{
+        paths.forEach((path)=>{
+            if (path.path == window.location.pathname) {
+                setCurrentPath(path)
+            }
+        })
+    },[])
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/props" element={<Props user={user} contents={contents} />} />
-        <Route path="/count" element={<Counter />}/>
-        <Route path="/blog" element={<Blog />}/>
-        <Route path="/form" element={<Form />}/>
-        <Route path="/quiz" element={<Quiz />}/>
-        <Route path="/geoquiz" element={<GeoQuiz />}/>
-        <Route path="/shop" element={<Shop />}/>
-        <Route path="/random" element={<Random />}/>
-        <Route path="/todo" element={<Todo />}/>
-      </Routes>
-      
-    </BrowserRouter>
-  )
+    return (
+        <BrowserRouter>
+
+            <Drawer open={open} onClose={()=>setOpen(false)}>
+                {DrawerList}
+            </Drawer>
+
+            <Box sx={{ flexGrow: 1 }}>
+                <AppBar position="static">
+                    <Toolbar sx={{maxWidth: "1280px", margin: "0 auto", width: "100%"}}>
+                    <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={()=>setOpen(open => !open)}>
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" component="div" sx={{ textAlign: "center", flexGrow: 1 }}>
+                        {currentPath.name}
+                    </Typography>
+                    <Button color="inherit">Login</Button>
+                    </Toolbar>
+                </AppBar>
+            </Box>
+
+
+
+            <Routes>
+                {paths.map((path, index) => (
+                    <Route key={index} path={path.path} element={path.element} />
+                ))}
+            </Routes>
+        
+        </BrowserRouter>
+    )
 
 }
 

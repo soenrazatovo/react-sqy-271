@@ -1,17 +1,19 @@
+import TextField from '@mui/material/TextField';
+
 function FormInput({type, name, value, updateFunction}) {
     return ( 
-        <div>
-            <h6>{name.charAt(0).toUpperCase() + name.slice(1).toLowerCase() + " :"}</h6>
-            <input 
-                type={type}
-                name={name == undefined ? type : name}
-                placeholder={"Veuillez entrer votre " + (name == undefined ? type : name)}
-                value={value}
-                onChange={(e) => updateFunction(e)}
-                minLength={type == "password" ? 8 : ""}
-                required               
-            />
-        </div>
+        <TextField 
+            type={type}
+            variant="filled"
+            label={name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()}
+            name={name}
+            placeholder={"Please enter your " + name}
+            value={value}
+            onChange={(e) => updateFunction(e)}
+            minLength={type == "password" ? 8 : ""}
+            required   
+            sx={{width: "50%"}}            
+        />
      );
 }
 
