@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { Routes, Route, Link, useNavigate } from "react-router-dom"
 import "./App.css"
 
 import Counter from "./Counter.jsx"
@@ -35,6 +35,9 @@ import { useState,useEffect } from "react"
 
 function App() {
 
+    const [currentPath, setCurrentPath] = useState("/")
+    const [open, setOpen] = useState(false);
+
     const paths = [
         {path: "/", name: "Login", element: <Form />},
         {path: "/count", name: "Counter", element: <Counter />},
@@ -46,13 +49,44 @@ function App() {
         {path: "/todo", name: "Todo", element: <Todo />},
     ]
 
+    const navigate = useNavigate();
+
+    async function handleLogOut() {
+        const url = "http://localhost:3000/user/logout"
+        const res = await fetch(url, {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        })
+        if (res.status == 200) {
+            console.log("Redirection to login")
+            navigate("/")
+            
+            paths.forEach((path)=>{
+                if (path.path == window.location.pathname) {
+                    setCurrentPath(path)
+                }
+            })
+        }
+    }
+
     const DrawerList = (
         <Box sx={{ width: 250 }} role="presentation" onClick={()=>setOpen(false)}>
+        <List>
+            <ListItem disablePadding>
+                <ListItemButton onClick={handleLogOut}>
+                    Logout
+                </ListItemButton>
+            </ListItem>
+        </List>
         <Divider />
         <List>
             {paths.map((path, index) => (
-                <Link className="Link" to={path.path} onClick={()=>setCurrentPath(path)}>
-                    <ListItem key={index} disablePadding>
+                <Link key={index} className="Link" to={path.path} onClick={()=>setCurrentPath(path)}>
+                    <ListItem disablePadding>
                         <ListItemButton>
                             {path.name}
                         </ListItemButton>
@@ -63,9 +97,6 @@ function App() {
         </Box>
     );
 
-    const [currentPath, setCurrentPath] = useState("/")
-    const [open, setOpen] = useState(false);
-
     useEffect(()=>{
         paths.forEach((path)=>{
             if (path.path == window.location.pathname) {
@@ -74,36 +105,37 @@ function App() {
         })
     },[])
 
-    return (
-        <BrowserRouter>
 
+    return (
+        <>
             <Drawer open={open} onClose={()=>setOpen(false)}>
                 {DrawerList}
             </Drawer>
 
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static">
-                    <Toolbar sx={{maxWidth: "1280px", margin: "0 auto", width: "100%"}}>
-                    <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={()=>setOpen(open => !open)}>
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" component="div" sx={{ textAlign: "center", flexGrow: 1 }}>
+            <AppBar position="static">
+                <Toolbar sx={{maxWidth: "1280px", margin: "auto", width: "100%", boxSizing: "border-box", display: "grid", gridTemplateColumns: "1fr 1fr 1fr"}}>
+                    <div style={{display: "flex", justifyContent: "flex-start"}}>
+                        <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={()=>setOpen(open => !open)}>
+                            <MenuIcon />
+                        </IconButton>
+                    </div>
+                        <Typography variant="h6" component="div" sx={{ textAlign: "center", flexGrow: 1 }}>
                         {currentPath.name}
                     </Typography>
-                    <Button color="inherit">Login</Button>
-                    </Toolbar>
-                </AppBar>
-            </Box>
-
-
+                    <div style={{display: "flex", justifyContent: "flex-end"}}>
+                        <Button color="inherit">Login</Button>
+                        <Button color="inherit">Signup</Button>
+                    </div>
+                </Toolbar>
+            </AppBar>
+        
 
             <Routes>
                 {paths.map((path, index) => (
                     <Route key={index} path={path.path} element={path.element} />
                 ))}
-            </Routes>
-        
-        </BrowserRouter>
+            </Routes> 
+        </>
     )
 
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import FormInput from "./FormInput";
 
 import Button from "@mui/material/Button"
@@ -78,23 +79,8 @@ function Form() {
         console.log(data)
     }
 
-    async function handleLogOut() {
-        // const url = "http://localhost:3000/user/logout"
-        // const res = await fetch(url, {
-        //     method: "DELETE",
-        //     credentials: "include",
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        // })
-        // const data = await res.json()
-        // console.log(data)
-    }
-
     return ( 
         <>
-            <Button variant="outlined" onClick={()=>{handleLogOut()}}>Log Out</Button>
             <h2>Formulaire de {formMethod}</h2>
             
             <form onSubmit={(e)=>{handleSubmit(e)}} style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "16px"}}>
